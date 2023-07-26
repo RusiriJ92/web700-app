@@ -92,18 +92,16 @@ app.get('/courses', (req, res) => {
 
 // GET /student/:num route
 app.get('/student/:num', (req, res) => {
-  const num = req.params.num;
-
-  collegeData.getStudentByNum(num)
-    .then((data) => {
-      console.log(data);
-      res.render("student", { student: data })
-    })
-    .catch((error) => {
-      res.render("student", { message: "No results" });
-    });
-});
-
+    const num = req.params.num;
+  
+    collegeData.getStudentByNum(num)
+      .then((student) => {
+        res.json(student);
+      })
+      .catch((error) => {
+        res.json({ message: "no results" });
+      });
+  });
 
 // Adding "Post" route "/students/add" 
 app.post('/students/add', (req, res) => {
