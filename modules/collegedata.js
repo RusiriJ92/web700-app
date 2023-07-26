@@ -96,23 +96,6 @@ function getCourses() {
   });
 }
 
-function getCourseById(id) {
-  return new Promise((resolve, reject) => {
-    if (!dataCollection || !dataCollection.courses) {
-      reject("No course data available");
-      return;
-    }
-
-    var course = dataCollection.courses.find(course => course.courseId === id);
-    if (course) {
-      resolve(course);
-    } else {
-      reject("No results returned for course per id");
-    }
-  });
-}
-
-
 /**
  * Function getStudentsByCourse
  * @param {
@@ -147,6 +130,7 @@ function getStudentByNum(num) {
   });
 }
 
+<<<<<<< HEAD
 function updateStudent(studentData) {
   return new Promise((resolve, reject) => {
     if (!dataCollection || !dataCollection.students) {
@@ -172,6 +156,8 @@ function updateStudent(studentData) {
   });
 }
 
+=======
+>>>>>>> parent of b84f126 (master)
 function addStudent(studentData) {
   return new Promise((resolve, reject) => {
     if (!studentData.TA) {
@@ -194,7 +180,5 @@ module.exports = {
   getTAs,
   getStudentsByCourse,
   getStudentByNum,
-  addStudent,
-  getCourseById,
-  updateStudent
+  addStudent
 };
